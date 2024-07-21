@@ -20,23 +20,40 @@ function addItem(){
 
         //creating finish button
         if( !document.getElementById("finishbtn")){
+
         const finish = document.createElement("button");
         finish.id="finishbtn";
         finish.textContent = "Finish";
+        
         document.getElementById("addbtn").appendChild(finish);
-        finish.addEventListener("click",function finishList(){
+        finish.addEventListener("click",()=>{
+
+            const task = document.getElementById("itemlist").innerHTML;
+            const weeknumber = document.getElementById("mainheading").textContent;
+            const day = document.getElementById("subheading").textContent;
 
             const section = document.createElement("div");
-            const unorder = document.createElement("ul");
-            const task = document.createElement("li");
-            task.textContent=taskadd.value;
-            unorder.appendChild(task);
+            section.innerHTML = `<h1>${weeknumber}</h1><h2>${day}</h2><ul>${task}</ul>`
+            document.getElementById("Finallist").appendChild(section);
+            section.className="section";
 
-            section.id ="section";
-            document.getElementById("list").appendChild(section);
-            section.appendChild(unorder)
+            document.getElementById("mainheading").textContent="";
+            document.getElementById("subheading").textContent="";
+            document.getElementById("itemlist").innerHTML="";
+
+            document.getElementById("heading").style.display="inline"
+            document.getElementById("Week").value="";
+            document.getElementById("Day").value="";
+
+            const finish = document.getElementById("finishbtn");
+            if(finish){
+                finish.remove();
+            }
 
         });
+         
+
+      
 
         //creating the function for finish button
 
