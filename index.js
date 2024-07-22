@@ -28,12 +28,40 @@ function addItem(){
         document.getElementById("addbtn").appendChild(finish);
         finish.addEventListener("click",()=>{
 
-            const task = document.getElementById("itemlist").innerHTML;
+            const task = document.getElementById("itemlist").querySelectorAll("li");
             const weeknumber = document.getElementById("mainheading").textContent;
             const day = document.getElementById("subheading").textContent;
 
             const section = document.createElement("div");
-            section.innerHTML = `<h1>${weeknumber}</h1><h2>${day}</h2><ul>${task}</ul>`
+            section.innerHTML = `<h1>${weeknumber}</h1><h2>${day}</h2>`
+
+            const ul = document.createElement("ul");
+            task.forEach(item =>{
+            const li = document.createElement("li");
+            li.textContent=item.firstChild.textContent;
+            ul.appendChild(li)
+
+        //creating the delete button
+
+        const dltbtn = document.createElement("button");
+        dltbtn.textContent= "Delete";
+        li.appendChild(dltbtn);
+        dltbtn.addEventListener("click",()=>{ul.removeChild(li)
+
+            if (ul.children.length === 0) {
+                    section.parentElement.removeChild(section);
+            }
+        
+        });
+
+      
+    });
+
+        section.appendChild(ul);
+
+        
+
+
             document.getElementById("Finallist").appendChild(section);
             section.className="section";
 
