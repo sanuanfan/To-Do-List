@@ -19,7 +19,7 @@ function addItem(){
         list.style.display = "block";
 
         //creating finish button
-        if( !document.getElementById("finishbtn")){
+        if( !document.getElementById("finishbtn") ){
 
         const finish = document.createElement("button");
         finish.id="finishbtn";
@@ -27,7 +27,7 @@ function addItem(){
         
         document.getElementById("addbtn").appendChild(finish);
         finish.addEventListener("click",()=>{
-
+            if(document.getElementById("itemlist").children.length  !==0 ){
             const task = document.getElementById("itemlist").querySelectorAll("li");
             const weeknumber = document.getElementById("mainheading").textContent;
             const day = document.getElementById("subheading").textContent;
@@ -61,9 +61,12 @@ function addItem(){
 
         
 
-
             document.getElementById("Finallist").appendChild(section);
             section.className="section";
+            }
+            else{
+                alert("Please add atleast one item")
+            }
 
             document.getElementById("mainheading").textContent="";
             document.getElementById("subheading").textContent="";

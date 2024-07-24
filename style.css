@@ -6,3 +6,60 @@
     width: 400px;
     background-color: aqua;
 }
+.maincontainer{
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.subcontainer{
+    background-color: rgb(0, 255, 64);
+    width: 300px;
+    height: 250px;
+    border-radius: 30px;
+    padding: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 223);
+}
+.subcontainer h1{
+    margin-left: 65px;
+
+}
+#Week{
+    width: 100px;
+    border-radius: 20px;
+    height: 30px;
+    background-color: rgb(244, 241, 237);
+    border: 0px;
+}
+#Day{
+    width: 100px;
+    border-radius: 20px;
+    height: 30px;
+    background-color: rgb(244, 241, 237);
+    border: 0px;
+
+}
+#heading.h1{
+   margin: 50px;
+}
+
+#Itemadd{
+    border-radius: 20px;
+    height: 30px;
+    width: 170px;
+    background-color: rgb(244, 241, 237);
+    border: 0px;
+}
+.addbutton{
+    height: 40px;
+    background-color: aqua;
+    width: 80px;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    margin-left: 120px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,255);
+}
