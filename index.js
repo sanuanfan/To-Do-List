@@ -4,15 +4,17 @@ function addItem(){
     const addedtask = document.getElementById("itemlist");
     const weeknumber = document.getElementById("Week");
     const day = document.getElementById("Day");
+    const titlename = document.getElementById("titleinput");
 
     if(
         document.getElementById("Itemadd").value.length > 0 &&
         weeknumber.value.length > 0 &&
-        day.value.length > 0 
+        day.value.length > 0 &&
+        document.getElementById("titleinput").value.length > 0
 
     ){
         //hidding and showing the elements according to the need
-       
+        document.getElementById("titlenames").innerHTML = titlename.value;
         document.getElementById("mainheading").innerHTML = weeknumber.value 
         document.getElementById("subheading").innerHTML = day.value
         document.getElementById("heading").style.display = "none";
@@ -31,9 +33,10 @@ function addItem(){
             const task = document.getElementById("itemlist").querySelectorAll("li");
             const weeknumber = document.getElementById("mainheading").textContent;
             const day = document.getElementById("subheading").textContent;
+            const input = document.getElementById("titlenames").textContent
 
             const section = document.createElement("div");
-            section.innerHTML = `<h1>${weeknumber}</h1><h2>${day}</h2>`
+            section.innerHTML = `<h1>${input}</h1><p>${weeknumber}</p><p>${day}</p>`
 
             const ul = document.createElement("ul");
             task.forEach(item =>{
@@ -71,6 +74,8 @@ function addItem(){
             document.getElementById("mainheading").textContent="";
             document.getElementById("subheading").textContent="";
             document.getElementById("itemlist").innerHTML="";
+            document.getElementById("titlenames").innerHTML="";
+
 
             document.getElementById("heading").style.display="inline"
             document.getElementById("Week").value="";
