@@ -1,4 +1,5 @@
 function addItem(){
+
     const list = document.getElementById("list");
     const taskadd = document.getElementById("Itemadd"); 
     const addedtask = document.getElementById("itemlist");
@@ -11,12 +12,12 @@ function addItem(){
         weeknumber.value.length > 0 &&
         day.value.length > 0 &&
         document.getElementById("titleinput").value.length > 0
-
     ){
         //hidding and showing the elements according to the need
+
         document.getElementById("titlenames").innerHTML = titlename.value;
-        document.getElementById("mainheading").innerHTML = weeknumber.value 
-        document.getElementById("subheading").innerHTML = day.value
+        document.getElementById("mainheading").innerHTML = weeknumber.value; 
+        document.getElementById("subheading").innerHTML = day.value;
         document.getElementById("heading").style.display = "none";
         list.style.display = "block";
 
@@ -36,40 +37,55 @@ function addItem(){
             const input = document.getElementById("titlenames").textContent
 
             const section = document.createElement("div");
+            section.id = "newdiv";
             section.innerHTML = `<p id="listhead">${input}</p>
             <p id="listweek">${weeknumber}</p>
-            <p id="listday">${day}</p><div id="listicon">
-            <i class='bx bxs-down-arrow'></i></div>`
+            <p id="listday">${day}</p>
+            <div id="listicon">
+                <i class='bx bxs-down-arrow' id="icondown"></i>
+                <i class='bx bxs-up-arrow' id="iconup"></i>
+            </div>`
             
-            // document.getElementById("listdiv").addEventListener("click",()=>{
-            //     document.getElementById("ullist").style.display = "flex"
-            // })
 
-            section.querySelector("#listicon").addEventListener("click", () => {
-                // const ul = section.querySelector("#ullist");
-                // if (ul) {
-                    ul.style.display = ul.style.display === "none" ? "flex" : "none";
-                // }
+            section.querySelector("#icondown").addEventListener("click", () => {
+                    if(ul.style.display = ul.style.display === "none"){
+                        ul.style.display = "block";
+                        document.getElementById("icondown").style.display = "none";
+                        document.getElementById("iconup").style.display = "inline-block";
+
+                    }else{
+                        ul.style.display = "none";
+                    }
             });
+            section.querySelector("#iconup").addEventListener("click", () => {
+                if(ul.style.display = ul.style.display !== "none"){
+                    document.getElementById("icondown").style.display = "inline-block";
+                    ul.style.display = "none";
+                    document.getElementById("iconup").style.display = "none";
+
+
+
+                }else{
+                    document.getElementById("iconup").style.display = "inline-block";
+                }
+        });
 
             const ul = document.createElement("ul");
             ul.id = "ullist";
             ul.style.display = "none";
+
             task.forEach(item =>{
             const li = document.createElement("li");
             li.textContent=item.firstChild.textContent;
+            li.id = "task-item;"
             ul.appendChild(li)
 
-           
-
-            // function showlist(){
-            //     ul.style.display="inline";
-            // }
 
         //creating the delete button
 
-        const dltbtn = document.createElement("button");
-        dltbtn.textContent= "Delete";
+        const dltbtn = document.createElement("i");
+        dltbtn.className= "bx bxs-trash";
+        dltbtn.id = "delete-btn";
         li.appendChild(dltbtn);
         dltbtn.addEventListener("click",()=>{ul.removeChild(li)
 
@@ -79,12 +95,34 @@ function addItem(){
         
         });
 
+        const cmpltbtn = document.createElement("i");
+        cmpltbtn.className= "bx bx-checkbox-checked"
+        li.appendChild(cmpltbtn);
+        cmpltbtn.id = "cmplt-btn"
+        cmpltbtn.addEventListener("click",()=>{
+            let cmpltlist = section.querySelector("#cmpltlist");
+                    if (!cmpltlist) {
+                        const head = document.createElement("p");
+                        head.textContent = "Completed Task";
+                        section.appendChild(head);
+                        cmpltlist = document.createElement("ul");
+                        cmpltlist.id = "cmpltlist";
+                        section.appendChild(cmpltlist);
+                    }
+
+                    ul.removeChild(li);
+                    const list = document.createElement("li");
+                    list.textContent = li.firstChild.textContent;
+                    cmpltlist.appendChild(list);
+
+            }
+
+        );
+
       
     });
 
         section.appendChild(ul);
-
-        
 
             document.getElementById("Finallist").appendChild(section);
             section.className="section";
@@ -97,6 +135,7 @@ function addItem(){
             document.getElementById("subheading").textContent="";
             document.getElementById("itemlist").innerHTML="";
             document.getElementById("titlenames").innerHTML="";
+            document.getElementById("list").style.display="none";
 
 
             document.getElementById("heading").style.display="inline"
@@ -110,15 +149,10 @@ function addItem(){
             }
 
         });
-         
-        
-
       
-
         //creating the function for finish button
 
         
-
         //creating list items
     }
         const li = document.createElement("li");

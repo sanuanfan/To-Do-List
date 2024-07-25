@@ -2,14 +2,35 @@
     display: none;
 }
 .section{
-    height: 400px;
-    width: 400px;
+    height: auto;
+    width: auto;
     background-color: aqua;
+    border-radius: 30px;
+    padding: 10px;
+    margin: 20px;
+    box-shadow: 0px 10px 15px rgb(4, 6, 1);
+
+}
+#Finallist{
+    height: auto;
+    width: auto;
+    /* background-color: blue; */
+    display: flex;
+    align-items: flex-start;
+}
+#list{
+    background-color: rgb(127, 255, 212);
+    height: auto;
+    width: 250px;
+    border-radius: 30px;
+    margin-left: 20px;
+    padding: 15px;
+    box-shadow: 0px 10px 15px rgb(4, 6, 1);
 }
 .maincontainer{
     display: flex;
     justify-content: center;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 .subcontainer{
@@ -71,6 +92,18 @@
     margin-top: 20px;
     box-shadow: 5px 5px 5px rgba(0,0,0,255);
 }
+#delete-btn{
+    margin-left: 20px;
+    color: brown;
+    font-size: 20px;
+
+}
+#cmplt-btn{
+    color: green;
+    margin-left: 5px;
+    font-size: 25px;
+    margin-top: 5px;
+}
 #listhead{
     display: inline;
     font-size: 30px;
@@ -87,7 +120,16 @@
     font-weight: 600;
 }
 #listicon{
+    display: inline-block;
     margin-left: 10px;
     color:white;
+    cursor: pointer;
+
+    /* position: relative; */
     
 }
+#iconup{
+    display: none;
+}
+
+
