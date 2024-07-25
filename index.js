@@ -36,13 +36,35 @@ function addItem(){
             const input = document.getElementById("titlenames").textContent
 
             const section = document.createElement("div");
-            section.innerHTML = `<h1>${input}</h1><p>${weeknumber}</p><p>${day}</p>`
+            section.innerHTML = `<p id="listhead">${input}</p>
+            <p id="listweek">${weeknumber}</p>
+            <p id="listday">${day}</p><div id="listicon">
+            <i class='bx bxs-down-arrow'></i></div>`
+            
+            // document.getElementById("listdiv").addEventListener("click",()=>{
+            //     document.getElementById("ullist").style.display = "flex"
+            // })
+
+            section.querySelector("#listicon").addEventListener("click", () => {
+                // const ul = section.querySelector("#ullist");
+                // if (ul) {
+                    ul.style.display = ul.style.display === "none" ? "flex" : "none";
+                // }
+            });
 
             const ul = document.createElement("ul");
+            ul.id = "ullist";
+            ul.style.display = "none";
             task.forEach(item =>{
             const li = document.createElement("li");
             li.textContent=item.firstChild.textContent;
             ul.appendChild(li)
+
+           
+
+            // function showlist(){
+            //     ul.style.display="inline";
+            // }
 
         //creating the delete button
 
@@ -80,6 +102,7 @@ function addItem(){
             document.getElementById("heading").style.display="inline"
             document.getElementById("Week").value="";
             document.getElementById("Day").value="";
+            document.getElementById("titleinput").value="";
 
             const finish = document.getElementById("finishbtn");
             if(finish){
@@ -88,6 +111,7 @@ function addItem(){
 
         });
          
+        
 
       
 

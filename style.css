@@ -71,3 +71,23 @@
     margin-top: 20px;
     box-shadow: 5px 5px 5px rgba(0,0,0,255);
 }
+#listhead{
+    display: inline;
+    font-size: 30px;
+    font-weight: 600;
+}
+#listweek{
+    display: inline;
+    margin-left: 10px;
+    font-weight: 600;
+}
+#listday{
+    display: inline;
+    margin-left: 10px;
+    font-weight: 600;
+}
+#listicon{
+    margin-left: 10px;
+    color:white;
+    
+}
