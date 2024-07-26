@@ -8,10 +8,10 @@ function addItem(){
     const titlename = document.getElementById("titleinput");
 
     if(
-        document.getElementById("Itemadd").value.length > 0 &&
+        taskadd.value.length > 0 &&
         weeknumber.value.length > 0 &&
         day.value.length > 0 &&
-        document.getElementById("titleinput").value.length > 0
+        titlename.value.length > 0
     ){
         //hidding and showing the elements according to the need
 
@@ -38,35 +38,38 @@ function addItem(){
 
             const section = document.createElement("div");
             section.id = "newdiv";
-            section.innerHTML = `<p id="listhead">${input}</p>
-            <p id="listweek">${weeknumber}</p>
-            <p id="listday">${day}</p>
-            <div id="listicon">
-                <i class='bx bxs-down-arrow' id="icondown"></i>
-                <i class='bx bxs-up-arrow' id="iconup"></i>
+            section.innerHTML = `<p class="listhead">${input}</p>
+            <p class="listweek">${weeknumber}</p>
+            <p class="listday">${day}</p>
+            <div class="icondown">
+                <i class='bx bxs-down-arrow' ></i></div>
+                <div class = "iconup">
+                <i class='bx bxs-up-arrow' ></i>
             </div>`
             
 
-            section.querySelector("#icondown").addEventListener("click", () => {
+            section.querySelector(".icondown").addEventListener("click", () => {
                     if(ul.style.display = ul.style.display === "none"){
                         ul.style.display = "block";
-                        document.getElementById("icondown").style.display = "none";
-                        document.getElementById("iconup").style.display = "inline-block";
+                        section.querySelector(".icondown").style.display = "none";
+                        section.querySelector(".iconup").style.display = "inline-block";
+                        section.querySelector(".cmpltlist").style.display = "block";
+                        section.querySelector(".cmplttitle").style.display = "block";
 
                     }else{
                         ul.style.display = "none";
                     }
             });
-            section.querySelector("#iconup").addEventListener("click", () => {
+            section.querySelector(".iconup").addEventListener("click", () => {
                 if(ul.style.display = ul.style.display !== "none"){
-                    document.getElementById("icondown").style.display = "inline-block";
+                    section.querySelector(".icondown").style.display = "inline-block";
                     ul.style.display = "none";
-                    document.getElementById("iconup").style.display = "none";
-
-
+                    section.querySelector(".iconup").style.display = "none";
+                    section.querySelector(".cmpltlist").style.display = "none";
+                    section.querySelector(".cmplttitle").style.display = "none";
 
                 }else{
-                    document.getElementById("iconup").style.display = "inline-block";
+                    section.querySelector(".iconup").style.display = "inline-block";
                 }
         });
 
@@ -89,8 +92,10 @@ function addItem(){
         li.appendChild(dltbtn);
         dltbtn.addEventListener("click",()=>{ul.removeChild(li)
 
-            if (ul.children.length === 0) {
+            if (ul.children.length === 0 && !section.querySelector(".cmplttitle")) { 
+                // if(document.getElementById("cmplttitle").innerHTML === ""){
                     section.parentElement.removeChild(section);
+                // }
             }
         
         });
@@ -100,13 +105,14 @@ function addItem(){
         li.appendChild(cmpltbtn);
         cmpltbtn.id = "cmplt-btn"
         cmpltbtn.addEventListener("click",()=>{
-            let cmpltlist = section.querySelector("#cmpltlist");
+            let cmpltlist = section.querySelector(".cmpltlist");
                     if (!cmpltlist) {
                         const head = document.createElement("p");
+                        head.className = "cmplttitle"
                         head.textContent = "Completed Task";
                         section.appendChild(head);
                         cmpltlist = document.createElement("ul");
-                        cmpltlist.id = "cmpltlist";
+                        cmpltlist.className = "cmpltlist";
                         section.appendChild(cmpltlist);
                     }
 
