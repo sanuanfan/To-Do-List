@@ -9,12 +9,10 @@
     padding: 10px;
     margin: 20px;
     box-shadow: 0px 10px 15px rgb(4, 6, 1);
-
 }
 #Finallist{
     height: auto;
     width: auto;
-    /* background-color: blue; */
     display: flex;
     align-items: flex-start;
 }
@@ -30,9 +28,7 @@
 .maincontainer{
     display: flex;
     justify-content: center;
-    /* background-color: antiquewhite; */
 }
-
 .subcontainer{
     background-color: rgb(0, 255, 64);
     width: 300px;
@@ -52,7 +48,6 @@
     width: 170px;
     background-color: rgb(244, 241, 237);
     border: 0px;
-
 }
 #Week{
     width: 100px;
@@ -67,12 +62,10 @@
     height: 30px;
     background-color: rgb(244, 241, 237);
     border: 0px;
-
 }
 #heading.h1{
    margin: 50px;
 }
-
 #Itemadd{
     border-radius: 20px;
     height: 30px;
@@ -96,7 +89,6 @@
     margin-left: 20px;
     color: brown;
     font-size: 20px;
-
 }
 #cmplt-btn{
     color: green;
@@ -124,13 +116,9 @@
     margin-left: 10px;
     color:white;
     cursor: pointer;
-
-    /* position: relative; */
-    
 }
 .iconup{
     display: none;
-    /* display: inline-block; */
     margin-left: 10px;
     color:white;
     cursor: pointer;
